@@ -28,6 +28,7 @@
 #import "StringExpand.h"
 #import "WebViewController.h"
 #import "NoticeScrollView.h"
+#import "ConfigManager.h"
 
 
 @interface THomeViewController ()
@@ -187,6 +188,9 @@
 #pragma make 切换学号
 -(void)cancleAction
 {
+    [ConfigManager sharedConfigManager].isLeader = FALSE;
+    [[ConfigManager sharedConfigManager].wrapper loginOut];
+    
     UINavigationController *nav = rootNav;
     [nav popToRootViewControllerAnimated:YES];
 }

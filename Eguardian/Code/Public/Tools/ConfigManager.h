@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CUControlWrapper.h"
 
 @interface ConfigManager : NSObject
 {
@@ -14,11 +15,16 @@
     NSString                 *loginKey;
     NSDictionary             *userMessage;         //绑定后用户的信息
     
+    CUControlWrapper         *wrapper;
+    BOOL                     isLeader;              //判断是否是领导
 }
 
 @property(nonatomic,retain)NSDictionary     *configData;
-@property(nonatomic,retain)NSString     *loginKey;
+@property(nonatomic,retain)NSString         *loginKey;
 @property(nonatomic,retain)NSDictionary     *userMessage;
+
+@property(nonatomic,retain)CUControlWrapper *wrapper;
+@property(nonatomic,assign)BOOL isLeader;
 
 + (ConfigManager *)sharedConfigManager;
 

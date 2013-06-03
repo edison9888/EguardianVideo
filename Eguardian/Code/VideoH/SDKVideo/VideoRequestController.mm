@@ -112,9 +112,9 @@
     NSString *strUsername = [[ConfigManager sharedConfigManager].configData objectForKey:@"video_username"];
     NSString *strPassword = [[ConfigManager sharedConfigManager].configData objectForKey:@"video_pwd"];
     
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     int nRet = 0;
-    if ( nil == app.wrapper )
+    if ( FALSE == [ConfigManager sharedConfigManager].isLeader )
     {
         nRet = [wrapper login:strIPAddress port:28866 user:strUsername psd:strPassword epid:strEPID];
     }

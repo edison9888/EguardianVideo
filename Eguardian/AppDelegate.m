@@ -18,10 +18,8 @@
 @implementation AppDelegate
 @synthesize displayPanel;
 @synthesize window = _window;
-@synthesize wrapper;
 - (void)dealloc
 {
-    [wrapper release];
     [displayPanel release];
     [_window release];
     [super dealloc];
@@ -105,7 +103,6 @@
 {
     
     
-    self.wrapper = nil;
     
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
@@ -122,8 +119,7 @@
     tempView.frame = CGRectMake(0, 0, self.window.frame.size.width, self.window.frame.size.height);
     [self.window addSubview:tempView]; [tempView release];
     [self.window makeKeyAndVisible];
-    
-    
+    [ConfigManager sharedConfigManager].isLeader = FALSE;
     [self firstRequest];
     
     return YES;

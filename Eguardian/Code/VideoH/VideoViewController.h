@@ -26,7 +26,7 @@
 
 
 @property (strong, nonatomic) VideoPlayController *videoController;
-@property (nonatomic, retain) CUControlWrapper  *wrapper;
+@property (nonatomic, assign) CUControlWrapper  *wrapper;
 @property (nonatomic, retain) UIScrollView  *mesh;
 
 

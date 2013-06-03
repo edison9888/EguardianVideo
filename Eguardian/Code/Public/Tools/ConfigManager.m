@@ -13,8 +13,11 @@
 @synthesize configData;
 @synthesize loginKey;
 @synthesize userMessage;
+@synthesize wrapper;
+@synthesize isLeader;
 - (void)dealloc
 {
+    [wrapper release];
     [userMessage release];
     [loginKey release];
     [configData release];

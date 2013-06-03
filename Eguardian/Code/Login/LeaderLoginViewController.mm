@@ -12,6 +12,7 @@
 #import "Global.h"
 #import "AppDelegate.h"
 #import "LoginBaseViewController.h"
+#import "ConfigManager.h"
 
 @implementation LeaderLoginViewController
 
@@ -57,18 +58,15 @@
     NSString *strIPAddress = [[ConfigManager sharedConfigManager].configData objectForKey:@"video_addr"];
     
     int state = 0;
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    if (app.wrapper == nil)
-    {
-        CUControlWrapper *tempWrapper = [[CUControlWrapper alloc] init];
-        app.wrapper = tempWrapper;
-        [tempWrapper release];
-    }
-    
-    state = [app.wrapper login:strIPAddress port:28866 user:strUsername psd:strPassword epid:strEPID];
+
+    CUControlWrapper *tempWrapper = [[CUControlWrapper alloc] init];
+    [ConfigManager sharedConfigManager].wrapper = tempWrapper;
+    [tempWrapper release];
+    state = [[ConfigManager sharedConfigManager].wrapper login:strIPAddress port:28866 user:strUsername psd:strPassword epid:strEPID];
     if (state == 0)
     {
         [self storageLoginData];    //自动登陆
+        [ConfigManager sharedConfigManager].isLeader = YES;
         LHomeViewController *hv = [[LHomeViewController alloc] init];
         [self.navigationController pushViewController:hv animated:YES];
         [hv release];

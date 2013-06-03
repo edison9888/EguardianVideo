@@ -30,7 +30,6 @@
 {
     [mesh release];
     [videoController release];
-    [wrapper release];
     [super dealloc];
 }
 
@@ -268,17 +267,18 @@
 {
     [self.activityView startAnimating];
     
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    if ( nil == app.wrapper )
+    if ( FALSE == [ConfigManager sharedConfigManager].isLeader)
     {
         CUControlWrapper *aWrapper = [[CUControlWrapper alloc] init];
-        self.wrapper = aWrapper;
-        self.wrapper.delegate = self;
+        [ConfigManager sharedConfigManager].wrapper = aWrapper;
         [aWrapper release];
+        self.wrapper = [ConfigManager sharedConfigManager].wrapper;
+        self.wrapper.delegate = self;
+        
     }
     else
     {
-        self.wrapper = app.wrapper;
+        self.wrapper = [ConfigManager sharedConfigManager].wrapper;
     }
     
     
