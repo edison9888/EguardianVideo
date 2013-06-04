@@ -19,11 +19,12 @@ typedef enum // 云台的转动的方向
 typedef enum // 资源类型
 {
 	kDomain = 0, // 域				
-	kPeerUnit,	 // 设备								
-	kCamera,     // 摄像头											
+	kPeerUnit,	 // 设备	
+    kStorageCell,
+	kCamera,     // 摄像头
+    kStorage
 }IResType;
 
-// 资源的基类
 @interface NSResEntity : NSObject
 {
     BOOL            enable;
@@ -37,9 +38,9 @@ typedef enum // 资源类型
 }
 @property (nonatomic, assign)   BOOL            enable;            // 资源是否使能
 @property (nonatomic, assign)   char            cIdx;              // 资源的序号
-@property (nonatomic, copy)     NSString        *puid;             // PUID
+@property (nonatomic, copy)     NSString        *puid;             
 @property (nonatomic, assign)   BOOL            online;            // 是否在线
-@property (nonatomic, assign)   IResType        resType;         	
+@property (nonatomic, assign)   IResType        resType;         
 @property (nonatomic, copy)     NSString        *resName;          // 资源名称
 @property (nonatomic, assign)   NSResEntity     *parent;           // 父节点
 @property (nonatomic, retain)   NSMutableArray  *childrenArray;    // 子节点集合
@@ -50,6 +51,7 @@ typedef enum // 资源类型
  *	@brief	设备资源
  */
 @interface NSPeerUnit : NSResEntity
+
 {
     NSString *modelType;
 }
@@ -64,4 +66,17 @@ typedef enum // 资源类型
 {
     
 }
+
+
+@end
+
+@interface StorageFile : NSObject
+
+- (id)initWithDirPath:(NSString *)path name:(NSString *)name size:(NSInteger)size type:(BOOL)cefs;
+
+@property (nonatomic, readonly)NSString *filePath;
+@property (nonatomic, readonly)NSString *fileName;
+@property (nonatomic, readonly)NSInteger fileSize;
+@property (nonatomic, readonly)BOOL cefs;
+
 @end

@@ -1,4 +1,4 @@
-//
+﻿//
 //  VideoView.h
 //  iMobileMonitor
 //
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface VideoView : UIView
+@interface VideoView : UIView 
 {
 	CGImageRef  _imageRef;
     CGRect      _rendRect;

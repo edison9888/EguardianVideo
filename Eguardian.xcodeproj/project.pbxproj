@@ -1263,7 +1263,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1272,7 +1272,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1312,8 +1312,8 @@
 				ARCHS = armv7;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jian (85DFRV34XW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Eguardian/Eguardian-Prefix.pch";
@@ -1325,8 +1325,8 @@
 					"\"$(SRCROOT)/Eguardian/Code/VideoH\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "538843DE-C454-48A8-A26E-9E1A1C20086B";
+				PROVISIONING_PROFILE = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
