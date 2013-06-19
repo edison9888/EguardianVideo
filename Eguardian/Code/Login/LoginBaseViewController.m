@@ -117,6 +117,37 @@ static BOOL wasSwitchRole = NO;
     
     if ([self.loginedKey isEqualToString:User_LoginedUsers_Parents])
     {
+        {
+            // 发送touken
+            NSDictionary *user = [self userFromText];
+            NSString *tempSchoolID = [user objectForKey:@"SchoolID"];
+            NSString *tempUserNumber = [user objectForKey:@"UserNumber"];
+            NSString *tempUserNmae = [[ConfigManager sharedConfigManager].userMessage objectForKey:@"sname"];
+            
+            NSString *registerUrl = [[ConfigManager sharedConfigManager].configData objectForKey:@"register_path"];
+            NSString *result = [NSString stringWithFormat:@"%@?type=student&schoolid=%@&userid=%@&username=%@&deviceToken=%@",
+                                    registerUrl,tempSchoolID,tempUserNumber,tempUserNmae,[ConfigManager sharedConfigManager].deviceToken];
+                
+            
+            NSLog(@"初始化信息 %@",[ConfigManager sharedConfigManager].configData);
+            
+            NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+            [request addValue: [[ConfigManager sharedConfigManager].configData objectForKey:@"api_key_value"]
+           forHTTPHeaderField:[[ConfigManager sharedConfigManager].configData objectForKey:@"api_key_name"]];
+            NSString *urlString =  [result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL *url = [NSURL URLWithString:urlString];
+            [request setURL:url];
+
+            NSError *error;
+            [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+//        NSData *rsData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+//        NSError *parseError = nil;
+//        id jsonObject = [NSJSONSerialization JSONObjectWithData:rsData options:NSJSONReadingAllowFragments error:&parseError];
+
+        }
+        
+        
+        
         HomeViewController *hv = [[HomeViewController alloc] init];
         [self.navigationController pushViewController:hv animated:YES];
         [hv release];
@@ -205,10 +236,10 @@ static BOOL wasSwitchRole = NO;
     
 }
 
-- (void)storageLoginData {
+- (void)storageLoginData
+{
     
     NSDictionary *user = [self userFromText];
-    
     for (int i=0; i<[loginedUsers_ count]; i++) {
         if ([[loginedUsers_ objectAtIndex:i] isEqualToDictionary:user]) {
             [loginedUsers_ removeObject:user];

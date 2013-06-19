@@ -17,6 +17,8 @@
     
     CUControlWrapper         *wrapper;
     BOOL                     isLeader;              //判断是否是领导
+    NSString                 *deviceToken;          //通知  deviceToken
+    
 }
 
 @property(nonatomic,retain)NSDictionary     *configData;
@@ -25,6 +27,9 @@
 
 @property(nonatomic,retain)CUControlWrapper *wrapper;
 @property(nonatomic,assign)BOOL isLeader;
+
+@property(nonatomic,retain)NSString     *deviceToken;
+
 
 + (ConfigManager *)sharedConfigManager;
 
@@ -58,6 +63,7 @@
 +(NSString *)getSendHomeWorkWithGradeID:(NSString *)gradeID classID:(NSString *)classID ids:(NSString *)ids subjectID:(NSString *)subjectID content:(NSString *)content;
 
 
++(NSString *)getSeatsAttendanceAddress:(NSString *)date;
 
 
 

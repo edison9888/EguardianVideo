@@ -17,6 +17,7 @@
 #import "NoticeViewController.h"
 #import "ADScrollView.h"
 #import "FamilyEducationController.h"
+#import "SeatsAttendanceController.h"
 
 
 #import "AdvertisingManager.h"
@@ -26,6 +27,7 @@
 #import "WebViewController.h"
 #import "NoticeScrollView.h"
 #import "ConfigManager.h"
+
 
 @interface HomeViewController ()
 
@@ -162,6 +164,13 @@
     else if ( atag == 6 )   //通知
     {
         FamilyEducationController *vc = [[FamilyEducationController alloc] init];
+        [nav pushViewController:vc animated:YES];
+        [vc release];
+        
+    }
+    else if ( atag == 7 )   
+    {
+        SeatsAttendanceController *vc = [[SeatsAttendanceController alloc] init];
         [nav pushViewController:vc animated:YES];
         [vc release];
         
@@ -354,6 +363,14 @@
     }
 
     
+    
+    
+    {
+        UIImage *tempImag = [UIImage imageNamed:@"座位考勤.png"];
+        CGRect tempRect = CGRectMake(self.view.frame.size.width+origin1, tempY, tempImag.size.width, tempImag.size.height);
+        UIView *tempView = [self initCustom:tempRect imageName:@"座位考勤.png" text:@"座位考勤" buttonTag:7 ];
+        [self.scrollView addSubview:tempView]; [tempView release];
+    }
     
     
     

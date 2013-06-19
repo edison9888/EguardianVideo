@@ -1,14 +1,14 @@
 //
-//  CheckWork.m
-//  CampusManager
+//  SeatsData.m
+//  Eguardian
 //
-//  Created by apple on 13-4-7.
+//  Created by apple on 13-6-18.
 //  Copyright (c) 2013年 apple. All rights reserved.
 //
 
-#import "CheckWorkData.h"
+#import "SeatsData.h"
 
-@implementation CheckWorkData
+@implementation SeatsData
 @synthesize list;
 @synthesize sname;
 
@@ -19,7 +19,7 @@
     [super dealloc];
 }
 
- 
+
 
 
 
@@ -28,9 +28,11 @@
     self = [super init];
     if (self)
     {
+        NSLog(@"数据 %@",adata);
+        
         if ([@"ok" isEqualToString:[adata objectForKey:@"status"]] )
         {
-            NSLog(@"%@",adata);
+            
             
             self.sname = [[[adata objectForKey:@"content"] objectForKey:@"rs"] objectForKey:@"sname"];
             if ([ [[adata objectForKey:@"content"] objectForKey:@"list"] isKindOfClass:[NSArray class]])
@@ -42,6 +44,7 @@
     }
     return self;
 }
+
 
 
 @end

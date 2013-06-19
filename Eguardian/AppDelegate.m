@@ -122,6 +122,40 @@
     [ConfigManager sharedConfigManager].isLeader = FALSE;
     [self firstRequest];
     
+    
+    {
+        //通知
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
+        
+        NSDictionary* payload = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        
+        //后台通知弹出
+        if (payload)
+        {
+            NSString* alertStr = nil;
+            NSDictionary *apsInfo = [payload objectForKey:@"aps"];
+            NSObject *alert = [apsInfo objectForKey:@"alert"];
+            if ([alert isKindOfClass:[NSString class]])
+            {
+                alertStr = (NSString*)alert;
+            }
+            else if ([alert isKindOfClass:[NSDictionary class]])
+            {
+                NSDictionary* alertDict = (NSDictionary*)alert;
+                alertStr = [alertDict objectForKey:@"body"];
+            }
+            application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+            if ([application applicationState] == UIApplicationStateActive && alertStr != nil)
+            {
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"" message:alertStr delegate:nil
+                                                          cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        
+    }
+    
+    
     return YES;
     
 }
@@ -158,4 +192,59 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+
+
+//通知
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString* deviceTokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    [ConfigManager sharedConfigManager].deviceToken = deviceTokenString;
+    NSLog(@"设备信息 %@", deviceTokenString);
+}
+
+//注册push功能失败 后 返回错误信息，执行相应的处理
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    NSLog(@"Push Register Error:%@", err.description);
+}
+
+
+//前台通知处理
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)payload
+{
+    
+    NSString* alertStr = nil;
+    NSDictionary *apsInfo = [payload objectForKey:@"aps"];
+    NSObject *alert = [apsInfo objectForKey:@"alert"];
+    if ([alert isKindOfClass:[NSString class]])
+    {
+        alertStr = (NSString*)alert;
+    }
+    else if ([alert isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary* alertDict = (NSDictionary*)alert;
+        alertStr = [alertDict objectForKey:@"body"];
+    }
+    application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+    if ([application applicationState] == UIApplicationStateActive && alertStr != nil)
+    {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"" message:alertStr delegate:nil
+                                                  cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertView show];
+    }
+    
+}
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+

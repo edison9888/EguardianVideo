@@ -13,6 +13,9 @@
 		185BC81917307D470041F7EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185BC81817307D470041F7EC /* SystemConfiguration.framework */; };
 		185BC81C17307FFB0041F7EC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 185BC81A17307FFB0041F7EC /* Icon.png */; };
 		185BC81D17307FFB0041F7EC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185BC81B17307FFB0041F7EC /* Icon@2x.png */; };
+		18AC8DAD1770666D001D39AD /* SeatsAttendanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC8DAC1770666D001D39AD /* SeatsAttendanceController.m */; };
+		18AC8DAF17706730001D39AD /* 座位考勤@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AC8DAE17706730001D39AD /* 座位考勤@2x.png */; };
+		18AC8DB217707313001D39AD /* SeatsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AC8DB117707313001D39AD /* SeatsData.m */; };
 		18F7A2B8172ABB130057D5B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F7A2B7172ABB130057D5B5 /* UIKit.framework */; };
 		18F7A2BA172ABB130057D5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F7A2B9172ABB130057D5B5 /* Foundation.framework */; };
 		18F7A2BC172ABB130057D5B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F7A2BB172ABB130057D5B5 /* CoreGraphics.framework */; };
@@ -188,6 +191,11 @@
 		185BC81817307D470041F7EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		185BC81A17307FFB0041F7EC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		185BC81B17307FFB0041F7EC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		18AC8DAB1770666D001D39AD /* SeatsAttendanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatsAttendanceController.h; sourceTree = "<group>"; };
+		18AC8DAC1770666D001D39AD /* SeatsAttendanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatsAttendanceController.m; sourceTree = "<group>"; };
+		18AC8DAE17706730001D39AD /* 座位考勤@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "座位考勤@2x.png"; sourceTree = "<group>"; };
+		18AC8DB017707313001D39AD /* SeatsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatsData.h; sourceTree = "<group>"; };
+		18AC8DB117707313001D39AD /* SeatsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatsData.m; sourceTree = "<group>"; };
 		18F7A2B4172ABB130057D5B5 /* Eguardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eguardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F7A2B7172ABB130057D5B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18F7A2B9172ABB130057D5B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -615,6 +623,8 @@
 				18F9CA0517563C4100CC8720 /* HomeWorkViewController.m */,
 				18F9CA0617563C4100CC8720 /* NoticeViewController.h */,
 				18F9CA0717563C4100CC8720 /* NoticeViewController.m */,
+				18AC8DAB1770666D001D39AD /* SeatsAttendanceController.h */,
+				18AC8DAC1770666D001D39AD /* SeatsAttendanceController.m */,
 			);
 			path = UIControllers;
 			sourceTree = "<group>";
@@ -642,6 +652,8 @@
 				18F9CA1117563C4100CC8720 /* NoticeData.m */,
 				18F9CA1217563C4100CC8720 /* THomeWorkData.h */,
 				18F9CA1317563C4100CC8720 /* THomeWorkData.m */,
+				18AC8DB017707313001D39AD /* SeatsData.h */,
+				18AC8DB117707313001D39AD /* SeatsData.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -913,6 +925,7 @@
 		18F9CAEF17563C4900CC8720 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				18AC8DAE17706730001D39AD /* 座位考勤@2x.png */,
 				18F9CAF017563C4900CC8720 /* Arrow@2x.png */,
 				18F9CAF117563C4900CC8720 /* BgImage@2x.png */,
 				18F9CAF217563C4900CC8720 /* C_CellLeftImg@2x.png */,
@@ -1118,6 +1131,7 @@
 				18F9CB6717563C4900CC8720 /* 视频选择取消按钮@2x.png in Resources */,
 				18F9CB6817563C4900CC8720 /* 视频选择确定按钮@2x.png in Resources */,
 				18F9CB6917563C4900CC8720 /* 选择其他线路按钮@2x.png in Resources */,
+				18AC8DAF17706730001D39AD /* 座位考勤@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,6 +1213,8 @@
 				18F9CAC817563C4100CC8720 /* VideoRequestController.mm in Sources */,
 				18F9CAC917563C4100CC8720 /* VideoPlayController.mm in Sources */,
 				18F9CACB17563C4100CC8720 /* VideoViewController.mm in Sources */,
+				18AC8DAD1770666D001D39AD /* SeatsAttendanceController.m in Sources */,
+				18AC8DB217707313001D39AD /* SeatsData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1228,8 +1244,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liu jian (F44U4Z9M49)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu jian (F44U4Z9M49)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1244,8 +1260,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = armv7;
 			};
@@ -1286,8 +1302,8 @@
 				ARCHS = armv7;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu jian (F44U4Z9M49)";
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Eguardian/Eguardian-Prefix.pch";
@@ -1300,7 +1316,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

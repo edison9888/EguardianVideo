@@ -15,8 +15,10 @@
 @synthesize userMessage;
 @synthesize wrapper;
 @synthesize isLeader;
+@synthesize deviceToken;
 - (void)dealloc
 {
+    [deviceToken release];
     [wrapper release];
     [userMessage release];
     [loginKey release];
@@ -71,6 +73,18 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ConfigManager);
     NSString *result = [NSString stringWithFormat:@"%@?action=notice&key=%@",url,key];
     return result;
 }
+
+
+#pragma mark 座位考勤
++(NSString *)getSeatsAttendanceAddress:(NSString *)date
+{
+    NSString *url = [[ConfigManager sharedConfigManager].configData objectForKey:@"base_url"];
+    NSString *key = [ConfigManager sharedConfigManager].loginKey;
+    NSString *result = [NSString stringWithFormat:@"%@?action=ex_kaoqin&key=%@&date=%@",url,key,date];
+    return result;
+}
+
+
 
 
 //**************************************************************************************************************************
