@@ -129,7 +129,7 @@ static BOOL wasSwitchRole = NO;
                                     registerUrl,tempSchoolID,tempUserNumber,tempUserNmae,[ConfigManager sharedConfigManager].deviceToken];
                 
             
-            NSLog(@"初始化信息 %@",[ConfigManager sharedConfigManager].configData);
+//            NSLog(@"初始化信息 %@",[ConfigManager sharedConfigManager].configData);
             
             NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
             [request addValue: [[ConfigManager sharedConfigManager].configData objectForKey:@"api_key_value"]
@@ -142,12 +142,13 @@ static BOOL wasSwitchRole = NO;
             [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
 //        NSData *rsData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
 //        NSError *parseError = nil;
-//        id jsonObject = [NSJSONSerialization JSONObjectWithData:rsData options:NSJSONReadingAllowFragments error:&parseError];
-
+//        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:rsData options:NSJSONReadingAllowFragments error:&parseError];
+//            NSLog(@" jsonObject is %@",jsonObject);
+            
         }
         
         
-        
+
         HomeViewController *hv = [[HomeViewController alloc] init];
         [self.navigationController pushViewController:hv animated:YES];
         [hv release];

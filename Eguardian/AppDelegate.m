@@ -43,6 +43,31 @@
                        self.window.rootViewController = nav;
                        [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBG.png"] forBarMetrics:UIBarMetricsDefault];
                        
+                       
+                       
+                       
+                       
+                       {
+                           //版本更新判断
+                           NSDictionary *dic = [ [NSBundle mainBundle] infoDictionary];
+                           NSString *versionString = [dic objectForKey:@"CFBundleVersion"];
+                           if ( ![versionString isEqualToString: [[ConfigManager sharedConfigManager].configData objectForKey:@"versionName"] ] )
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"有版本更新"
+                                                                              message:@""
+                                                                             delegate:self
+                                                                    cancelButtonTitle:@"取消"
+                                                                    otherButtonTitles:@"确认",nil];
+                               [alert show];
+                               [alert release];
+                           }
+                           
+                           
+                       }
+                       
+                       
+                       
+                       
                        LoginManager *manager = [LoginManager sharedLoginManager];
                        [nav pushViewController:manager.loginViewController animated:YES];
                        [nav release];
@@ -199,7 +224,7 @@
 {
     NSString* deviceTokenString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     [ConfigManager sharedConfigManager].deviceToken = deviceTokenString;
-    NSLog(@"设备信息 %@", deviceTokenString);
+//    NSLog(@"设备信息 %@", deviceTokenString);
 }
 
 //注册push功能失败 后 返回错误信息，执行相应的处理
@@ -234,6 +259,25 @@
     }
     
 }
+
+
+
+
+
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ( 1 == buttonIndex)
+    {
+        NSString *updateURL = [[ConfigManager sharedConfigManager].configData objectForKey:@"update_url"];
+        NSString *urlString =  [updateURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+    }
+    
+}
+
+
 
 
 @end
