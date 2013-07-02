@@ -13,6 +13,7 @@
 #import "ProvinceController.h"
 #import "ProCityDataManager.h"
 
+
 #define GrayViewTag 0x32
 
 static BOOL wasSwitchRole = NO;
@@ -70,7 +71,11 @@ static BOOL wasSwitchRole = NO;
     
     
     
-    
+    {
+        NSDictionary *user = [self userFromText];
+        [ProCityDataManager sharedProCityDataManager].schoolName = [user objectForKey:@"SchoolName"];
+//        NSLog(@"学校名称 测试 ---  %@",[user objectForKey:@"SchoolName"]);
+    }
     
     
     {

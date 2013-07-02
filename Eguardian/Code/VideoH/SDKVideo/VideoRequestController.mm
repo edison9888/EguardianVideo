@@ -18,6 +18,7 @@
 #import "DisplayPanel.h"
 #import "VideoViewController.h"
 #import "VideoCameraController.h"
+#import "ProCityDataManager.h"
 
 
 
@@ -93,12 +94,26 @@
 {
     
     [resArray removeAllObjects];
-    [resArray addObject:rootNode.resName];
+//    [resArray addObject:rootNode.resName];
     int nCount = [rootNode.childrenArray count];
     for (int i=0; i<nCount; i++)
     {
         NSPeerUnit *peerUnit = [rootNode.childrenArray objectAtIndex:i];
-        [resArray addObject:peerUnit.resName];
+        //过滤学校名称
+        NSString *schoolName =  [ProCityDataManager sharedProCityDataManager].schoolName;
+        
+        if (schoolName)
+        {
+            if ( [schoolName containString:peerUnit.resName] )
+            {
+                [resArray addObject:peerUnit.resName];
+            }
+        }
+        else
+        {
+            [resArray addObject:peerUnit.resName];
+        }
+        
     }
     [self.mainTableView reloadData];
 }
@@ -150,7 +165,9 @@
         
         if (nSelect <= nSize)
         {
-            NSPeerUnit *currentNode = [pDomain.childrenArray objectAtIndex:(nSelect - 1)];
+            //根节点不做处理
+//            NSPeerUnit *currentNode = [pDomain.childrenArray objectAtIndex:(nSelect - 1)];
+            NSPeerUnit *currentNode = [pDomain.childrenArray objectAtIndex:(nSelect)];
             [wrapper fetchCameras:nil];
             
             
@@ -302,12 +319,12 @@
 -(NSIndexPath *)tableView:(UITableView *)tableView
  willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// 设置第一行无法点击
-	NSUInteger row = [indexPath row];
-	if (row == 0)
-	{
-		return nil;
-	}
+//	// 设置第一行无法点击
+//	NSUInteger row = [indexPath row];
+//	if (row == 0)
+//	{
+//		return nil;
+//	}
     return indexPath;
 }
 
@@ -327,10 +344,10 @@
     
     
     
-    if ([resArray count] >0 && indexPath.row == [resArray count]-1 )
-    {
-        CusstomCellRounde(cell, CellCornerRadius, NO);
-    }
+//    if ([resArray count] >0 && indexPath.row == [resArray count]-1 )
+//    {
+//        CusstomCellRounde(cell, CellCornerRadius, NO);
+//    }
     
     
         

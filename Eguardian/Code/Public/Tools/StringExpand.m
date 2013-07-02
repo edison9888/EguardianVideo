@@ -99,6 +99,17 @@
 }
 
 
+#pragma mark 包含字符串名称
+-(BOOL )containString:(NSString *)key
+{
+    
+    NSRange foundObj=  [self rangeOfString:key options:NSCaseInsensitiveSearch];
+		
+		if(foundObj.length>0)
+			return YES;
+	return NO;
+}
+
 @end
 
 

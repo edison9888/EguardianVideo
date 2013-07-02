@@ -27,7 +27,7 @@
 +(NSString *)stringWithDate:(NSDate *)date;
 
 
-
+-(BOOL )containString:(NSString *)key;
 
 
 

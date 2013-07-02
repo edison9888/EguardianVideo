@@ -1279,8 +1279,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu jian (F44U4Z9M49)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1288,8 +1288,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = armv7;
@@ -1297,6 +1297,32 @@
 			name = Release;
 		};
 		18F7A2D2172ABB130057D5B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liu jian (F44U4Z9M49)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liu jian (F44U4Z9M49)";
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Eguardian/Eguardian-Prefix.pch";
+				INFOPLIST_FILE = "Eguardian/Eguardian-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Eguardian/Code/Public/VideoH\"",
+					"\"$(SRCROOT)/Eguardian/Code/VideoH\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		18F7A2D3172ABB130057D5B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
@@ -1317,32 +1343,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A3C1627-0B07-4ADB-A882-4CB98AE7E384";
-				VALID_ARCHS = armv7;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		18F7A2D3172ABB130057D5B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = armv7;
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wacosoft Technologies (Shenzhen) Co., Ltd.";
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Eguardian/Eguardian-Prefix.pch";
-				INFOPLIST_FILE = "Eguardian/Eguardian-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Eguardian/Code/Public/VideoH\"",
-					"\"$(SRCROOT)/Eguardian/Code/VideoH\"",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6A413A8-C808-4DC7-A14A-35F48BAEBECC";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
