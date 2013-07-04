@@ -266,12 +266,12 @@
         [self.scrollView addSubview:tempView]; [tempView release];
     }
     
-    {
-        UIImage *tempImag = [UIImage imageNamed:@"T家教互动.png"];
-        CGRect tempRect = CGRectMake(self.view.frame.size.width+origin2, tempY, tempImag.size.width, tempImag.size.height);
-        UIView *tempView = [self initCustom:tempRect imageName:@"T家教互动.png" text:@"家校互动" buttonTag:6];
-        [self.scrollView addSubview:tempView]; [tempView release];
-    }
+//    {
+//        UIImage *tempImag = [UIImage imageNamed:@"T家教互动.png"];
+//        CGRect tempRect = CGRectMake(self.view.frame.size.width+origin2, tempY, tempImag.size.width, tempImag.size.height);
+//        UIView *tempView = [self initCustom:tempRect imageName:@"T家教互动.png" text:@"家校互动" buttonTag:6];
+//        [self.scrollView addSubview:tempView]; [tempView release];
+//    }
     
     {
         UIImage *tempImag = [UIImage imageNamed:@"H_CheckWork.png"];
